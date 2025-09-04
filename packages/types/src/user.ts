@@ -1,4 +1,4 @@
-import { FormatRegistry, type Static, Type } from "@sinclair/typebox";
+import { type Static, Type } from "@sinclair/typebox";
 import {TypeCompiler} from "@sinclair/typebox/compiler";
 
 export const userSchema = Type.Object({

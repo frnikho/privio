@@ -1,4 +1,3 @@
-import { InferSelectModel } from "drizzle-orm";
 import * as p from "drizzle-orm/pg-core";
 import {uid} from "@infra/utils/db.utils";
 
@@ -18,23 +17,3 @@ export const user = p.pgTable("user", {
         onDelete: "set null",
     }),
 });
-
-type User = InferSelectModel<typeof user>;
-
-/*export const mapUserToEntity = (row: User): entity.User => {
-    return {
-        ...row,
-        password: row.password ?? undefined,
-        profilePictureFile: row.profilePictureFile ?? undefined,
-        profilePictureUpdatedAt: row.profilePictureUpdatedAt ?? undefined,
-        profilePictureUpdatedBy: row.profilePictureUpdatedBy ?? undefined,
-        updatedAt: row.updatedAt ?? undefined,
-        createdBy: row.createdBy ?? undefined,
-        updatedBy: row.updatedBy ?? undefined,
-        deletedAt: row.deletedAt ?? undefined,
-        deletedBy: row.deletedBy ?? undefined,
-    };
-};
-
-export const mapUserOption = (row: Option<User>) => mapOption(row, mapUserToEntity);
-export const mapUsersToEntities = (rows: User[]) => rows.map(mapUserToEntity);*/

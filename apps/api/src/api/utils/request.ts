@@ -16,9 +16,6 @@ export type Pagination = {
 }
 
 export const extractPaginationFromQuery = ({query}: {query: PaginationQuery}): Pagination => {
-    const DEFAULT_PAGE = 1;
-    const DEFAULT_LIMIT = 10;
-
     let page = DEFAULT_PAGE;
     let limit = DEFAULT_LIMIT;
 

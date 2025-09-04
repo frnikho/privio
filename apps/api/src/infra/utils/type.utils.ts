@@ -1,5 +1,5 @@
 import { isNone, isSome, none, type Option, some } from "fp-ts/Option";
-import {err, ok, Result, ResultAsync} from "neverthrow";
+import {err, ok, Result} from "neverthrow";
 
 
 export const mapOption = <R, E>(row: Option<R>, fn: (value: R) => E): Option<E> => {
@@ -20,14 +20,14 @@ export const oneOrThrow = <T, Z>(res: T[], error: Z): Result<T, Z> => {
     return ok(res[0]);
 };
 
-export const oneOrOption = <T>(res: T[], entityName = "Entity"): Option<T> => {
+export const oneOrOption = <T>(res: T[]): Option<T> => {
     if (res.length === 0) {
         return none;
     }
     return some(res[0]);
 };
 
-export const oneOreResultOption = <T, Z extends Error>(res: T[], entityName = "Entity"): Result<Option<T>, Z> => {
+export const oneOreResultOption = <T, Z extends Error>(res: T[]): Result<Option<T>, Z> => {
     if (res.length === 0) {
         return ok(none);
     }
