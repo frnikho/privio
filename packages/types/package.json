@@ -1,0 +1,22 @@
+{
+  "name": "@privio/types",
+  "version": "1.0.0",
+  "exports": {
+    "./*": "./dist/*.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/*.d.ts"
+      ]
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "dev": "tsc --project tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sinclair/typebox": "^0.34.40"
+  }
+}
