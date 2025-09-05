@@ -49,3 +49,9 @@ Pagination des résultats dans les espaces utilisateur et public
 - Zustand
 - Tailwind CSS
 - Chakra UI
+
+
+# Production
+```bash
+docker-compose -f docker-compose.prod.yml up --build
+```

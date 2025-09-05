@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "@privio/web",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -42,5 +42,6 @@
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2",
     "vite-tsconfig-paths": "^5.1.4"
-  }
+  },
+  "packageManager": "bun@1.2.21"
 }
