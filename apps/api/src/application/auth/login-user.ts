@@ -21,6 +21,7 @@ type Output = {
 }
 
 export default function ({body}: Input): ResultAsync<Output, AppException> {
+
     const user = userRepo(db)
         .findByEmail(body.email)
         .andThen((user) => optionToResult(user, appException('User not found')))

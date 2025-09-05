@@ -11,9 +11,11 @@ export const userGame = p.pgTable("user_game", {
     gameId: uid("game_id").references(() => game.id, {
         onDelete: "cascade",
     }),
-    score: p.integer(),
+    rating: p.integer(),
+    time_played: p.integer().default(0).notNull(),
+    notes: p.text(),
     createdAt: p.timestamp("created_at").defaultNow().notNull(),
-    deletedAt: p.timestamp("deleted_at"),
+    updatedAt: p.timestamp("updated_at"),
 }, (table) => [p.primaryKey({ columns: [table.userId, table.gameId] })]);
 
 export type UserGame = InferSelectModel<typeof userGame>;

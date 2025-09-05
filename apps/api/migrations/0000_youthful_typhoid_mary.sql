@@ -3,9 +3,11 @@ CREATE TABLE "game" (
 	"title" varchar(255) NOT NULL,
 	"description" text NOT NULL,
 	"genre" varchar(100) NOT NULL,
-	"release_date" date NOT NULL,
+	"release_date" timestamp NOT NULL,
 	"developer" varchar(255) NOT NULL,
+	"picture" varchar(4096) NOT NULL,
 	"publisher" varchar(255) NOT NULL,
+	"rating" integer NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"created_by" varchar,
 	"updated_at" timestamp,
@@ -17,9 +19,11 @@ CREATE TABLE "game" (
 CREATE TABLE "user_game" (
 	"user_id" varchar NOT NULL,
 	"game_id" varchar,
-	"score" integer,
+	"rating" integer,
+	"time_played" integer DEFAULT 0 NOT NULL,
+	"notes" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
-	"deleted_at" timestamp,
+	"updated_at" timestamp,
 	CONSTRAINT "user_game_user_id_game_id_pk" PRIMARY KEY("user_id","game_id")
 );
 --> statement-breakpoint
@@ -44,3 +48,4 @@ ALTER TABLE "user_game" ADD CONSTRAINT "user_game_user_id_user_id_fk" FOREIGN KE
 ALTER TABLE "user_game" ADD CONSTRAINT "user_game_game_id_game_id_fk" FOREIGN KEY ("game_id") REFERENCES "public"."game"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "user" ADD CONSTRAINT "user_updated_by_user_id_fk" FOREIGN KEY ("updated_by") REFERENCES "public"."user"("id") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "user" ADD CONSTRAINT "user_deleted_by_user_id_fk" FOREIGN KEY ("deleted_by") REFERENCES "public"."user"("id") ON DELETE set null ON UPDATE no action;
+CREATE INDEX idx_game_title_tsvector ON game USING gin (to_tsvector('simple', title));

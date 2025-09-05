@@ -45,3 +45,7 @@ Pagination des résultats dans les espaces utilisateur et public
 
 - Typebox
 - Drizzle
+- Tanstack Router, Query and Form
+- Zustand
+- Tailwind CSS
+- Chakra UI

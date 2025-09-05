@@ -8,9 +8,11 @@ export const game = p.pgTable("game", {
     title: p.varchar({ length: 255 }).notNull(),
     description: p.text().notNull(),
     genre: p.varchar({ length: 100 }).notNull(),
-    releaseDate: p.date("release_date").notNull(),
+    releaseDate: p.timestamp("release_date").notNull(),
     developer: p.varchar({ length: 255 }).notNull(),
+    picture: p.varchar({ length: 4096 }).notNull(),
     publisher: p.varchar({ length: 255 }).notNull(),
+    rating: p.integer("rating").notNull(),
     createdAt: p.timestamp("created_at").defaultNow().notNull(),
     createdBy: uid("created_by").references(() => user.id, {
         onDelete: "set null",

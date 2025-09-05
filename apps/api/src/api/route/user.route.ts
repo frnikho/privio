@@ -10,8 +10,27 @@ const list = (req: Req<unknown, PaginationQuery>, res: Response) => {
     return response(res, listUser({pagination}), listUserSchema)
 }
 
+const listGame = (req: Req, res: Response) => {
+
+}
+
+const addGame = (req: Req, res: Response) => {
+
+}
+
+const updateGame = (req: Req, res: Response) => {
+
+}
+
+const deleteGame = (req: Req, res: Response) => {
+
+}
+
 export default Router()
-    //auth middleware .use(auth);
     .get('/', withAuth(), list)
     .get('/:userId', (req, res) => {})
     .patch('/:userId', (req, res) => {})
+    .get('/:userId/game', withAuth(), listGame)
+    .post('/:userId/game', withAuth(), addGame)
+    .patch('/:userId/game', withAuth(), updateGame)
+    .delete('/:userId/game', withAuth(), deleteGame)

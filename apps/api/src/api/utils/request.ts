@@ -2,8 +2,8 @@ import {Request} from "express";
 
 export type Req<B = any, Q = any> = Request<any, any, B, Q>;
 
-const DEFAULT_PAGE = 1;
-const DEFAULT_LIMIT = 10;
+const DEFAULT_PAGE = 0;
+const DEFAULT_LIMIT = 20;
 
 export type PaginationQuery = {
     page?: number;
