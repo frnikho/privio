@@ -16,17 +16,5 @@ services:
     restart: always
     ports:
       - '6379:6379'
-  api:
-    container_name: privio_api
-    build:
-      context: .
-      dockerfile: apps/api/Dockerfile
-    environment:
-      DATABASE_URL: ${DATABASE_URL}
-  web:
-    container_name: privio_web
-    build:
-      context: .
-      dockerfile: apps/web/Dockerfile
 volumes:
   db_data:

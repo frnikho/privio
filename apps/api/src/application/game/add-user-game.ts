@@ -8,17 +8,12 @@ import userGameRepo from "@repo/user-game.repo";
 
 type Input = {
     auth: AuthContext;
-    gameId: string;
     body: UserGameCreateBody,
 }
 
-type Output = {
-
-}
-
-export default ({auth, gameId, body}: Input) => {
+export default ({auth, body}: Input) => {
     const pool = db;
-    return gameRepo(pool).findById(gameId)
+    return gameRepo(pool).findById(body.gameId)
         .andThen((game) => optionToResult(game, appException('Game not found')))
-        .andThen(() => userGameRepo(pool).add(auth.user.id, gameId, body))
+        .andThen(() => userGameRepo(pool).add(auth.user.id, body.gameId, body))
 }

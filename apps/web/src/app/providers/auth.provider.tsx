@@ -2,13 +2,13 @@ import {type PropsWithChildren, useCallback, useEffect, useState} from "react";
 import {AuthContext, type AuthContextType} from "@context/auth.context";
 import type {User} from "@privio/types/user";
 import {useQuery} from "@tanstack/react-query";
-import {getMe} from "@app/lib/api.ts";
+import {api} from "@app/lib/api.ts";
 
 type Props = Omit<AuthContextType, 'login' | 'logout' | 'isLoading'>
 
 export function AuthContextProvider({ ctx, children }: PropsWithChildren<{ ctx: Props }>) {
 
-    const {data, isLoading} = useQuery({queryKey: ['get-me'], queryFn: () => getMe()});
+    const {data, isLoading, isFetched} = useQuery({queryKey: ['get-me'], queryFn: api.auth.getMe});
 
     const [context, updateContext] = useState<Props>({user: ctx.user, isAuthenticated: ctx.isAuthenticated});
 
@@ -21,10 +21,12 @@ export function AuthContextProvider({ ctx, children }: PropsWithChildren<{ ctx: 
     }, []);
 
     useEffect(() => {
-        if (data) {
-            updateContext({user: data, isAuthenticated: true});
+        if (isFetched && data) {
+            if (data.status === 200) {
+                updateContext({user: data.body, isAuthenticated: true});
+            }
         }
-    }, [data]);
+    }, [isFetched, data]);
 
     return (
         <AuthContext.Provider value={{

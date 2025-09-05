@@ -1,5 +1,5 @@
 import { useForm } from "@tanstack/react-form";
-import {register} from "@app/lib/api.ts";
+import {api} from "@app/lib/api.ts";
 import {toaster} from "@components/ui/toaster.tsx";
 import {type FormEvent, useCallback} from "react";
 import {Button, Input} from "@chakra-ui/react";
@@ -20,11 +20,11 @@ export default function RegisterForm({onRegistered}: Props) {
             lastname: ''
         },
         onSubmit: ({value}) => {
-            register(value).then(async (res) => {
+            api.auth.register(value).then(async (res) => {
                 if (res.status !== 200) {
                     return toaster.create({title: 'Erreur', description: 'Impossible de créer un compte, merci de verifier vos informations', type: 'error'});
                 }
-                return onRegistered(await res.json());
+                return onRegistered(res.body);
             })
         }
     });
