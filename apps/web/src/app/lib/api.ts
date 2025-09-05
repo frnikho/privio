@@ -1,7 +1,6 @@
 import {type Game, type ListGame, type UserGameCreateBody} from "@privio/types/game";
 import type {AuthLoginRequest, AuthRegisterReq} from "@privio/types/auth";
-import type {User} from "@privio/types/user";
-import type {ListUserGame} from "@privio/api/dist/domain/entity/game.entity.ts";
+import type {ListUserSchema, User} from "@privio/types/user";
 
 const ENDPOINT = import.meta.env.VITE_API_URL;
 
@@ -56,7 +55,7 @@ export const api = {
             body: JSON.stringify(body)
         }),
         listUserGames: (userId: string, page: number, limit: number) => {
-            return apiFetch<{200: ListUserGame}>(`/user/${userId}/game?page=${page}&limit=${limit}`, {credentials: 'include'});
+            return apiFetch<{200: ListUserSchema}>(`/user/${userId}/game?page=${page}&limit=${limit}`, {credentials: 'include'});
         },
 
     }}
