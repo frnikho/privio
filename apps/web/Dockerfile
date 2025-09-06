@@ -26,7 +26,7 @@ WORKDIR /usr/share/nginx/html
 
 COPY --from=build /usr/src/app/out/full/apps/web/dist ./
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY /apps/web/docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
