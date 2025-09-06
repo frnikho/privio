@@ -54,6 +54,9 @@ export const api = {
             },
             body: JSON.stringify(body)
         }),
+        list: (page: number, limit: number) => {
+            return apiFetch<{200: ListGame}>(`/game?page=${page}&limit=${limit}`);
+        },
         listUserGames: (userId: string, page: number, limit: number) => {
             return apiFetch<{200: ListUserSchema}>(`/user/${userId}/game?page=${page}&limit=${limit}`, {credentials: 'include'});
         },
@@ -71,3 +74,4 @@ export const getGameById = (id: string): Promise<Game> => {
 export const searchGame = (query: string): Promise<ListGame> => {
     return fetch(`${ENDPOINT}/game?sort=search&title=${query}`).then((d) => d.json());
 }
+

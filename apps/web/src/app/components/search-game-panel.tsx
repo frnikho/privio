@@ -13,8 +13,8 @@ export default function SearchGamePanel() {
     const debouncedSearch = useDebounce(search, 350);
 
     const { isPending, data, mutate } = useMutation({
-        mutationFn: () => searchGame(debouncedSearch),
-    })
+        mutationFn: () => searchGame(debouncedSearch)
+    });
 
     useEffect(() => {
         if (!debouncedSearch) {
