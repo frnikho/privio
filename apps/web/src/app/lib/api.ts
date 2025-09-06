@@ -2,7 +2,7 @@ import {type Game, type ListGame, type UserGameCreateBody} from "@privio/types/g
 import type {AuthLoginRequest, AuthRegisterReq} from "@privio/types/auth";
 import type {ListUserSchema, User} from "@privio/types/user";
 
-const ENDPOINT = import.meta.env.VITE_API_URL;
+const ENDPOINT = (window as any).__ENV__?.API_URL ?? "http://localhost:4000";
 
 export const apiFetch = async <Schemas extends Record<number, any>>(path: string, options?: RequestInit): Promise<
     {
