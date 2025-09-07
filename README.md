@@ -6,6 +6,11 @@ Mise en place d’une plateforme permettant aux utilisateurs de gérer leur coll
 
 ## Demo
 
+compte de test : email: test@gmail.com / mdp: Test1234!
+
+- [Lien vers la démo](https://gameo-web.nikho.dev): https://gameo-web.nikho.dev
+
+
 ## ✨ Fonctionnalités
 
 - Authentification (inscription / connexion)

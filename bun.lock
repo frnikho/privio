@@ -48,7 +48,6 @@
         "@chakra-ui/react": "^3.26.0",
         "@emotion/react": "^11.14.0",
         "@privio/types": "workspace:*",
-        "@tailwindcss/postcss": "^4.1.13",
         "@tailwindcss/vite": "^4.1.13",
         "@tanstack/react-form": "^1.19.3",
         "@tanstack/react-query": "^5.86.0",
@@ -89,8 +88,6 @@
     },
   },
   "packages": {
-    "@alloc/quick-lru": ["@alloc/quick-lru@5.2.0", "", {}, "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="],
-
     "@ampproject/remapping": ["@ampproject/remapping@2.3.0", "", { "dependencies": { "@jridgewell/gen-mapping": "^0.3.5", "@jridgewell/trace-mapping": "^0.3.24" } }, "sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw=="],
 
     "@ark-ui/react": ["@ark-ui/react@5.22.0", "", { "dependencies": { "@internationalized/date": "3.8.2", "@zag-js/accordion": "1.22.1", "@zag-js/anatomy": "1.22.1", "@zag-js/angle-slider": "1.22.1", "@zag-js/async-list": "1.22.1", "@zag-js/auto-resize": "1.22.1", "@zag-js/avatar": "1.22.1", "@zag-js/carousel": "1.22.1", "@zag-js/checkbox": "1.22.1", "@zag-js/clipboard": "1.22.1", "@zag-js/collapsible": "1.22.1", "@zag-js/collection": "1.22.1", "@zag-js/color-picker": "1.22.1", "@zag-js/color-utils": "1.22.1", "@zag-js/combobox": "1.22.1", "@zag-js/core": "1.22.1", "@zag-js/date-picker": "1.22.1", "@zag-js/date-utils": "1.22.1", "@zag-js/dialog": "1.22.1", "@zag-js/dom-query": "1.22.1", "@zag-js/editable": "1.22.1", "@zag-js/file-upload": "1.22.1", "@zag-js/file-utils": "1.22.1", "@zag-js/floating-panel": "1.22.1", "@zag-js/focus-trap": "1.22.1", "@zag-js/highlight-word": "1.22.1", "@zag-js/hover-card": "1.22.1", "@zag-js/i18n-utils": "1.22.1", "@zag-js/json-tree-utils": "1.22.1", "@zag-js/listbox": "1.22.1", "@zag-js/menu": "1.22.1", "@zag-js/number-input": "1.22.1", "@zag-js/pagination": "1.22.1", "@zag-js/password-input": "1.22.1", "@zag-js/pin-input": "1.22.1", "@zag-js/popover": "1.22.1", "@zag-js/presence": "1.22.1", "@zag-js/progress": "1.22.1", "@zag-js/qr-code": "1.22.1", "@zag-js/radio-group": "1.22.1", "@zag-js/rating-group": "1.22.1", "@zag-js/react": "1.22.1", "@zag-js/scroll-area": "1.22.1", "@zag-js/select": "1.22.1", "@zag-js/signature-pad": "1.22.1", "@zag-js/slider": "1.22.1", "@zag-js/splitter": "1.22.1", "@zag-js/steps": "1.22.1", "@zag-js/switch": "1.22.1", "@zag-js/tabs": "1.22.1", "@zag-js/tags-input": "1.22.1", "@zag-js/time-picker": "1.22.1", "@zag-js/timer": "1.22.1", "@zag-js/toast": "1.22.1", "@zag-js/toggle": "1.22.1", "@zag-js/toggle-group": "1.22.1", "@zag-js/tooltip": "1.22.1", "@zag-js/tour": "1.22.1", "@zag-js/tree-view": "1.22.1", "@zag-js/types": "1.22.1", "@zag-js/utils": "1.22.1" }, "peerDependencies": { "react": ">=18.0.0", "react-dom": ">=18.0.0" } }, "sha512-cH3xVhKRn0ZsP2Jg2RZAziI38obIfTMC3Q6ZWtWeYL5k9fq6K8sa1XjdJclBRSD0vYYvR1ynHG9ThicWKKANtQ=="],
@@ -404,8 +401,6 @@
     "@tailwindcss/oxide-win32-arm64-msvc": ["@tailwindcss/oxide-win32-arm64-msvc@4.1.13", "", { "os": "win32", "cpu": "arm64" }, "sha512-dziTNeQXtoQ2KBXmrjCxsuPk3F3CQ/yb7ZNZNA+UkNTeiTGgfeh+gH5Pi7mRncVgcPD2xgHvkFCh/MhZWSgyQg=="],
 
     "@tailwindcss/oxide-win32-x64-msvc": ["@tailwindcss/oxide-win32-x64-msvc@4.1.13", "", { "os": "win32", "cpu": "x64" }, "sha512-3+LKesjXydTkHk5zXX01b5KMzLV1xl2mcktBJkje7rhFUpUlYJy7IMOLqjIRQncLTa1WZZiFY/foAeB5nmaiTw=="],
-
-    "@tailwindcss/postcss": ["@tailwindcss/postcss@4.1.13", "", { "dependencies": { "@alloc/quick-lru": "^5.2.0", "@tailwindcss/node": "4.1.13", "@tailwindcss/oxide": "4.1.13", "postcss": "^8.4.41", "tailwindcss": "4.1.13" } }, "sha512-HLgx6YSFKJT7rJqh9oJs/TkBFhxuMOfUKSBEPYwV+t78POOBsdQ7crhZLzwcH3T0UyUuOzU/GK5pk5eKr3wCiQ=="],
 
     "@tailwindcss/vite": ["@tailwindcss/vite@4.1.13", "", { "dependencies": { "@tailwindcss/node": "4.1.13", "@tailwindcss/oxide": "4.1.13", "tailwindcss": "4.1.13" }, "peerDependencies": { "vite": "^5.2.0 || ^6 || ^7" } }, "sha512-0PmqLQ010N58SbMTJ7BVJ4I2xopiQn/5i6nlb4JmxzQf8zcS5+m2Cv6tqh+sfDwtIdjoEnOvwsGQ1hkUi8QEHQ=="],
 
