@@ -65,7 +65,7 @@ export default (db: NodePgDatabase): GameInterface => ({
                 .select()
                 .from(game)
                 .orderBy(sql`${game.createdAt} DESC`)
-                .limit(12),
+                .limit(10),
         ).map((games) => {
             return {
                 games: games.map((row) => mapGameToEntity(row)),
@@ -80,7 +80,7 @@ export default (db: NodePgDatabase): GameInterface => ({
                 .select()
                 .from(game)
                 .orderBy(sql`${game.rating} DESC`)
-                .limit(12),
+                .limit(10),
         ).map((games) => {
             return {
                 games: games.map((row) => mapGameToEntity(row)),

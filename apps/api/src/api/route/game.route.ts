@@ -6,7 +6,7 @@ import {
     createGameSchema,
     GameListQuery,
     gameSchema,
-    listReviewSchema
+    listReviewSchema, UpdateGameBody, updateGameReq
 } from "@privio/types/game";
 import {handleResponse, response, send} from "@api/utils/response";
 import listGame from "@application/game/list-game";
@@ -16,6 +16,7 @@ import {validate} from "@api/middleware/validation.middleware";
 import createGame from "@application/game/create-game";
 import deleteGame from "@application/game/delete-game";
 import listReview from "@application/game/list-review";
+import updateGame from "@application/game/update-game";
 
 const list = (req: Req<unknown, GameListQuery>, res: Response) => {
     const pagination = extractPaginationFromQuery(req);
@@ -44,9 +45,14 @@ const _listReview = (req: Request<{gameId: string}>, res: Response) => {
     return response(res, listReview({pagination, gameId: req.params.gameId}), listReviewSchema)
 }
 
+const update = (req: Request<{gameId: string}, unknown, UpdateGameBody>, res: Response) => {
+    return response(res, updateGame({auth: req.auth, body: req.body, gameId: req.params.gameId}), gameSchema);
+}
+
 export default Router()
     .get('/', list)
     .post('/', withAuth(), validate({body: createGameReq}), create)
     .get('/:gameId', byId)
+    .patch('/:gameId', withAuth(), validate({body: updateGameReq}), update)
     .delete('/:gameId', withAuth(), _deleteGame)
     .get('/:gameId/reviews',_listReview)

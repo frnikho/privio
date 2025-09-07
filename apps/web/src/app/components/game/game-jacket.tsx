@@ -1,4 +1,3 @@
-import { Card } from "@chakra-ui/react";
 import type {Game, Review} from "@privio/types/game";
 import {useRouter} from "@tanstack/react-router";
 import {FaStar} from "react-icons/fa";
@@ -25,12 +24,10 @@ export function GameJacket({game, review}: Props) {
 
 
     return (
-        <Card.Root className={'min-w-[250px]'}>
-            <Card.Body className={''} cursor={'pointer'} gap="2" onClick={() => navigate({to: '/game/$gameId', params: {gameId: game.id}})}>
-                <img className="w-full h-48 object-cover rounded-lg" src={game.picture} alt={game.title}/>
-                <Card.Title mt="2">{game.title}</Card.Title>
-                {review && showReview(review)}
-            </Card.Body>
-        </Card.Root>
+        <div className={'cursor-pointer min-w-[300px]'} onClick={() => navigate({to: '/game/$gameId', params: {gameId: game.id}})}>
+            <img className="w-[400px] h-48 object-cover rounded-lg" src={game.picture} alt={game.title}/>
+            <p className={'py-2 px-1 text-xl font-semibold'}>{game.title}</p>
+            {review && showReview(review)}
+        </div>
     )
 }
