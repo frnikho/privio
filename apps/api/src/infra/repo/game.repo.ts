@@ -34,6 +34,13 @@ export default (db: NodePgDatabase): GameInterface => ({
             .map(mapGameToEntity);
     },
 
+    delete: (id) => {
+        return op(
+            db.delete(game).where(eq(game.id, id)).returning()
+        ).andThen((r) => oneOrThrow(r, new DbException("Failed to delete user")))
+            .map(mapGameToEntity);
+    },
+
     list: (page, limit) => {
         return op(
             db

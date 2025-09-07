@@ -1,16 +1,14 @@
-import {CloseButton, Dialog, Portal} from "@chakra-ui/react";
-import type {Game} from "@privio/types/game";
-import UpsertUserGameForm from "@app/components/form/upsert-user-game-form.tsx";
+import {Button, CloseButton, Dialog, Portal} from "@chakra-ui/react";
 
 type Props = {
-    game: Game;
     open: boolean;
+    title: string;
+    description?: string;
     updateOpen: (open: boolean) => void;
-    onGameAdded: () => void
-    userId: string;
+    onConfirm: () => void;
 }
 
-export default function AddGameModal({open, updateOpen, game, onGameAdded, userId}: Props) {
+export default function ConfirmModal({open, updateOpen, onConfirm, title, description}: Props) {
 
     return (
         <Dialog.Root size={'md'} lazyMount open={open} onOpenChange={({open}) => updateOpen(open)}>
@@ -19,14 +17,17 @@ export default function AddGameModal({open, updateOpen, game, onGameAdded, userI
                 <Dialog.Positioner>
                     <Dialog.Content>
                         <Dialog.Header>
-                            <Dialog.Title>
-                                Ajouter {game.title} à votre collection
-                            </Dialog.Title>
+                            <Dialog.Title>{title}</Dialog.Title>
                         </Dialog.Header>
                         <Dialog.Body className={'flex flex-col gap-8'}>
-                            <img className={'h-full rounded-xl'} src={game.picture} alt={game.title}/>
-                            <UpsertUserGameForm gameId={game.id} userId={userId} onGameUpsert={onGameAdded}/>
+                            {description}
                         </Dialog.Body>
+                        <Dialog.Footer>
+                            <Dialog.ActionTrigger asChild>
+                                <Button variant="outline">Annuler</Button>
+                            </Dialog.ActionTrigger>
+                            <Button onClick={onConfirm}>Confirmer</Button>
+                        </Dialog.Footer>
                         <Dialog.CloseTrigger asChild>
                             <CloseButton size="sm" />
                         </Dialog.CloseTrigger>

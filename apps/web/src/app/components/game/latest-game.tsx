@@ -1,6 +1,6 @@
 import {useQuery} from "@tanstack/react-query";
 import {api} from "@app/lib/api.ts";
-import {GameJacket} from "@app/components/game-jacket.tsx";
+import {GameJacket} from "@app/components/game/game-jacket.tsx";
 import {Text} from "@chakra-ui/react";
 import {match, P} from "ts-pattern";
 
@@ -18,7 +18,7 @@ export default function LatestGame() {
 
     if (data) {
         return (
-            <div className="p-8">
+            <div>
                 <Text className={'text-3xl font-semibold mb-4'}>Derniers jeux ajoutés</Text>
                 <div className="flex flex-row overflow-auto gap-4 w-full scrollbar pb-4">
                     {match({status: data.status, body: data.body})

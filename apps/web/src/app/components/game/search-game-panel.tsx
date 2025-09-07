@@ -5,7 +5,7 @@ import {useMutation} from "@tanstack/react-query";
 import {searchGame} from "@app/lib/api.ts";
 import {Text} from '@chakra-ui/react';
 import {match, P} from "ts-pattern";
-import {GameJacket} from "@app/components/game-jacket.tsx";
+import {GameJacket} from "@app/components/game/game-jacket.tsx";
 
 export default function SearchGamePanel() {
 
@@ -46,7 +46,7 @@ export default function SearchGamePanel() {
     }
 
     return (
-        <div className={'px-8 py-4 flex flex-col gap-4'}>
+        <div className={'flex flex-col gap-4'}>
             <Text className={'text-2xl'}>Résultat pour: <span className={'font-bold'}>{search}</span></Text>
             {showSearchResult}
         </div>

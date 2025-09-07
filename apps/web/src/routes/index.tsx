@@ -1,7 +1,7 @@
 import {createFileRoute} from '@tanstack/react-router'
-import LatestGame from "@app/components/latest-game.tsx";
-import MostRatedGame from "@app/components/most-rated-game.tsx";
-import SearchGamePanel from "@app/components/search-game-panel.tsx";
+import LatestGame from "@app/components/game/latest-game.tsx";
+import MostRatedGame from "@app/components/game/most-rated-game.tsx";
+import SearchGamePanel from "@app/components/game/search-game-panel.tsx";
 
 type GameSearch = {
     query?: string
@@ -18,7 +18,7 @@ export const Route = createFileRoute('/')({
 
 function Index() {
     return (
-        <div className={'flex flex-col gap-4'}>
+        <div className={'flex flex-col gap-12 px-8 py-4'}>
             <SearchGamePanel/>
             <LatestGame/>
             <MostRatedGame/>

@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import ListGame from "@app/components/list-game.tsx";
+import ListGame from "@app/components/game/list-game.tsx";
 import {Text} from '@chakra-ui/react';
 
 export const Route = createFileRoute('/game/')({

@@ -7,6 +7,7 @@ type Result<T> = ResultAsync<T, DbException>;
 
 export type GameInterface = {
     create: (body: CreateGame[]) => Result<Game>;
+    delete: (id: string) => Result<Game>;
     findLatest: () => ResultAsync<ListGame, DbException>;
     findMostRated: () => ResultAsync<ListGame, DbException>;
     list: (page: number, limit: number) => ResultAsync<ListGame, DbException>;

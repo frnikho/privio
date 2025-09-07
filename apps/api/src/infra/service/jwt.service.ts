@@ -18,7 +18,6 @@ export const verifyToken = (token: string, ignoreExpiration = false): ResultAsyn
             currentDate: ignoreExpiration ? new Date(0) : new Date(),
         }),
         (err) => {
-            console.log(err);
             if (err instanceof errors.JWTInvalid || err instanceof errors.JWTExpired || err instanceof errors.JWSInvalid) {
                 return new JwtException("Invalid jwt token !");
             }

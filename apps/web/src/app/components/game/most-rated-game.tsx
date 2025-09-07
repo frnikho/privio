@@ -1,5 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
-import {GameJacket} from "@app/components/game-jacket.tsx";
+import {GameJacket} from "@app/components/game/game-jacket.tsx";
 import {Text} from "@chakra-ui/react";
 import {api} from "@app/lib/api.ts";
 
@@ -12,13 +12,12 @@ export default function MostRatedGame() {
     }
 
     if (error) {
-        console.log(error);
         return <div>Error unknown</div>;
     }
 
     if (data) {
         return (
-            <div className="p-8">
+            <div>
                 <Text className={'text-3xl font-semibold mb-4'}>Les Jeux les mieux notés</Text>
                 <div className="flex flex-row overflow-auto gap-4 w-full scrollbar pb-4">
                     {data.body.games.map((game) => (

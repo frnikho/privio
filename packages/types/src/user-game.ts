@@ -14,9 +14,9 @@ export const userGameSchema = Type.Object({
         rating: Type.Number(),
         createdAt: Type.Date(),
     }),
-    rating: Type.Optional(Type.Integer({ minimum: 1, maximum: 100 })),
+    rating: Type.Optional(Type.Integer({ minimum: 1, maximum: 5 })),
     timePlayed: Type.Optional(Type.Integer({ minimum: 0 })),
-    notes: Type.Optional(Type.String({ minLength: 1, maxLength: 500 })),
+    notes: Type.Optional(Type.String({ minLength: 0, maxLength: 500 })),
 });
 
 export type UserGame = typeof userGameSchema;
@@ -25,7 +25,7 @@ export const userGameCreateSchema = Type.Object({
     gameId: Type.String(),
     rating: Type.Optional(Type.Integer({ minimum: 1, maximum: 5 })),
     timePlayed: Type.Optional(Type.Integer({ minimum: 0 })),
-    notes: Type.Optional(Type.String({ minLength: 1, maxLength: 500 })),
+    notes: Type.Optional(Type.String({ minLength: 0, maxLength: 500 })),
 });
 
 export type UserGameCreateBody = typeof userGameCreateSchema;

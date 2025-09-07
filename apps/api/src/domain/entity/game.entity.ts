@@ -1,3 +1,5 @@
+import {User} from "@entity/user.entity";
+
 export type Game = {
     id: string;
     title: string;
@@ -46,6 +48,7 @@ export type ListGame = {
 
 export type UserGame = {
     game: Game,
+    notes?: string,
     rating?: number;
     timePlayed?: number;
     createdAt: Date;
@@ -65,5 +68,20 @@ export type UpdateUserGame = {
 
 export type ListUserGame = {
     userGames: UserGame[];
+    total: number;
+}
+
+type Review = {
+    user: User
+    review: {
+        rating?: number;
+        timePlayed?: number;
+        notes?: string;
+        createdAt: Date;
+    };
+}
+
+export type ListReview = {
+    reviews: Review[];
     total: number;
 }

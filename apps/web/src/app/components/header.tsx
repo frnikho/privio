@@ -27,7 +27,7 @@ export default function Header() {
             .with(true, () => (
                 <HStack spaceX={2}>
                     <IconButton onClick={() => navigate({to: '/library'})} rounded={10}><FaGamepad className={'w-3'}/></IconButton>
-                    <Button onClick={() => navigate({to: '/account'})}>{user?.firstname} {user?.lastname} <FaUser className={'w-3'}/></Button>
+                    <Button variant={'subtle'}>{user?.firstname} {user?.lastname} <FaUser className={'w-3'}/></Button>
                 </HStack>
             ))
             .otherwise(() => (

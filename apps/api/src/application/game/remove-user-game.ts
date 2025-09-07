@@ -1,4 +1,3 @@
-import {UpdateUserGame} from "@entity/game.entity";
 import userGameRepo from "@repo/user-game.repo";
 import {db} from "@service/db.service";
 

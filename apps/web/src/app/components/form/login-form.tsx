@@ -50,6 +50,7 @@ export default function LoginForm({onLogged}: Props) {
                 <>
                     <Input placeholder="Mot de passe"
                            value={field.state.value}
+                           type={'password'}
                            onBlur={field.handleBlur}
                            onChange={(e) => field.handleChange(e.target.value)}/>
                 </>

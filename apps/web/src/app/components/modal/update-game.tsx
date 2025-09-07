@@ -1,16 +1,15 @@
 import {CloseButton, Dialog, Portal} from "@chakra-ui/react";
+import UpsertGameForm from "@app/components/form/upsert-game-form.tsx";
 import type {Game} from "@privio/types/game";
-import UpsertUserGameForm from "@app/components/form/upsert-user-game-form.tsx";
 
 type Props = {
     game: Game;
     open: boolean;
     updateOpen: (open: boolean) => void;
-    onGameAdded: () => void
-    userId: string;
+    onGameUpdated: (game: Game) => void
 }
 
-export default function AddGameModal({open, updateOpen, game, onGameAdded, userId}: Props) {
+export default function UpdateGameModal({open, updateOpen, onGameUpdated, game}: Props) {
 
     return (
         <Dialog.Root size={'md'} lazyMount open={open} onOpenChange={({open}) => updateOpen(open)}>
@@ -19,13 +18,10 @@ export default function AddGameModal({open, updateOpen, game, onGameAdded, userI
                 <Dialog.Positioner>
                     <Dialog.Content>
                         <Dialog.Header>
-                            <Dialog.Title>
-                                Ajouter {game.title} à votre collection
-                            </Dialog.Title>
+                            <Dialog.Title>Mettre à jour {game.title}</Dialog.Title>
                         </Dialog.Header>
                         <Dialog.Body className={'flex flex-col gap-8'}>
-                            <img className={'h-full rounded-xl'} src={game.picture} alt={game.title}/>
-                            <UpsertUserGameForm gameId={game.id} userId={userId} onGameUpsert={onGameAdded}/>
+                            <UpsertGameForm type={'update'} onGameUpsert={onGameUpdated} game={game}/>
                         </Dialog.Body>
                         <Dialog.CloseTrigger asChild>
                             <CloseButton size="sm" />
