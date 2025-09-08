@@ -47,6 +47,11 @@ compte de test : email: test@gmail.com / mdp: Test1234!
 - Redis
 - fp-ts, neverthrow & ts-pattern (function programming libraries)
 
+## ⚙️ Prérequis
+
+- [Bun](https://bun.sh/) (v1.2.21)
+- [Docker / Docker compose](https://www.docker.com/) 
+
 ## 🚀 Installation & lancement
 
 1. Cloner le repo et installer les dependencies :
@@ -79,7 +84,7 @@ compte de test : email: test@gmail.com / mdp: Test1234!
     ```
 6. De retour à la racine, démarrer l'application en mode développement :
     ```bash
-   bun dev
+    bun dev --env-mode=loose
     ```
 
 ## 📂 Structure
