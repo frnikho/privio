@@ -1,6 +1,34 @@
 import gameRepo from "@repo/game.repo";
 import registerUser from "@application/auth/register-user";
 import {db} from "@service/db.service";
+import {ResultAsync} from "neverthrow";
+
+const users = [
+    {
+        email: 'test1@gmail.com',
+        password: 'Test1234!',
+        firstname: 'John',
+        lastname:  'Doe'
+    },
+    {
+        email: 'test2@gmail.com',
+        password: 'Test1234!',
+        firstname: 'Simon',
+        lastname:  'Albert'
+    },
+    {
+        email: 'test3@gmail.com',
+        password: 'Test1234!',
+        firstname: 'Loic',
+        lastname:  'Scilla'
+    },
+    {
+        email: 'test4@gmail.com',
+        password: 'Test1234!',
+        firstname: 'Lucas',
+        lastname:  'Pelletier'
+    }
+]
 
 const games = [
     {
@@ -384,21 +412,17 @@ const seedGame = () => {
 }
 
 const seedUser = () => {
-    return registerUser({
-        body: {
-            email: 'test@gmail.com',
-            password: 'test123',
-            firstname: 'John',
-            lastname:  'Doe'
-        }
-    })
+    return ResultAsync.combine(users.map((u) => {
+            return registerUser({body: u});
+        })
+    )
 }
 
 export const seed = () => {
-    return seedUser().andThen(({user}) => {
+    return seedUser().andThen((users) => {
         return gameRepo(db).create(games.map((game) => ({
             ...game,
-            createdBy: user.id,
+            createdBy: users[0].user.id,
         })));
     });
 }

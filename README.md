@@ -1,8 +1,9 @@
-# Privio - Game App
+# Gameo - Gestion de collection de jeux
 
 Mini projet d'application de jeu développé avec TypeScript, Node.js, et React.
 
 Mise en place d’une plateforme permettant aux utilisateurs de gérer leur collection de jeux, d’ajouter de nouveaux titres à leur bibliothèque, de partager leur avis, d’indiquer le temps de jeu et d’attribuer une note à chaque jeu.
+
 
 ## Demo
 
@@ -10,6 +11,10 @@ compte de test : email: test@gmail.com / mdp: Test1234!
 
 - [Lien vers la démo](https://gameo-web.nikho.dev): https://gameo-web.nikho.dev
 
+
+![img.png](documentation/images/home.png)
+
+![img.png](documentation/images/library.png)
 
 ## ✨ Fonctionnalités
 
@@ -25,18 +30,22 @@ compte de test : email: test@gmail.com / mdp: Test1234!
 
 ## 🛠️ Stack technique
 
-- Typebox
+- React
+- Express
+- PostgreSQL
+- Bun
+- Turborepo
 - Drizzle
+- Typebox
 - Tanstack Router, Query and Form
 - Zustand
 - Tailwind CSS
 - Chakra UI
-- Turborepo
 - Docker
 - GitHub Actions
 - PostgreSQL
 - Redis
-- JWT
+- fp-ts, neverthrow & ts-pattern (function programming libraries)
 
 ## 🚀 Installation & lancement
 
@@ -72,10 +81,16 @@ compte de test : email: test@gmail.com / mdp: Test1234!
     ```bash
    bun dev
     ```
-   
 
+## 📂 Structure
 
-# Production
+- `apps/web` → app React (Vite + TanStack Router + UI lib)
+- `apps/api` → API Express + routes REST
+- `packages/types` → types partagés entre le front et le back
+- `docker-compose.yml` → stack de dev (Postgres + Redis)
+- `docker-compose.prod.yml` → stack complète (API + Front + DB + Redis)
+
+## Production
 ```bash
 docker-compose -f docker-compose.prod.yml up --build
 ```
